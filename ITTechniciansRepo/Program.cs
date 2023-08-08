@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ITTechniciansRepo.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ITTechniciansRepoContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ITTechniciansRepoContext") ?? throw new InvalidOperationException("Connection string 'ITTechniciansRepoContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj": {}
+    "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj": {
+    "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj",
+        "projectUniqueName": "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj",
         "projectName": "ITTechniciansRepo",
-        "projectPath": "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj",
+        "projectPath": "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo.csproj",
         "packagesPath": "C:\\Users\\PADIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\obj\\",
+        "outputPath": "C:\\Users\\PADIO\\project\\ITTechniciansRepo\\ITTechniciansRepo\\ITTechniciansRepo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,22 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
