@@ -28,9 +28,14 @@
                 <span asp-validation-for="Fix" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
+                <label asp-for="Component" class="control-label"></label>
+                <select asp-for="Component" class="form-control">
+                    <option>Choose Component</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
+                    <option value="Drivers">Drivers</option>
+                </select>
+                <span asp-validation-for="Component" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Model" class="control-label"></label>
@@ -42,6 +47,7 @@
                 <input asp-for="OS" class="form-control" />
                 <span asp-validation-for="OS" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
