@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITTechniciansRepo.Data;
 using ITTechniciansRepo.Models;
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITTechniciansRepo.Controllers
 {
@@ -26,6 +28,15 @@ namespace ITTechniciansRepo.Controllers
                           View(await _context.KnowledgeBase.ToListAsync()) :
                           Problem("Entity set 'ITTechniciansRepoContext.KnowledgeBase'  is null.");
         }
+
+        // GET: KnowledgeBase/ShowSearch
+        public async Task<IActionResult> ShowSearch()
+        {
+            return View();
+        }
+
+        // POST: KnowledgeBase/SearchResults
+        public async Task<IActionResult> SearchResults(string Search) => View("Index", await _context.KnowledgeBase.Where(j => j.Description.Contains(Search) || j.Diagnosis.Contains(Search) || j.OS.Contains(Search) || j.Model.Contains(Search)).ToListAsync());
 
         // GET: KnowledgeBase/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -56,7 +67,8 @@ namespace ITTechniciansRepo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Description,Diagnosis,Fix,Category,Model,OS")] KnowledgeBase knowledgeBase)
+        // The values of the form filled by the user are collected here.
+        public async Task<IActionResult> Create([Bind("Id,Description,Diagnosis,Fix,Component,Model,OS")] KnowledgeBase knowledgeBase)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +80,8 @@ namespace ITTechniciansRepo.Controllers
         }
 
         // GET: KnowledgeBase/Edit/5
+        // Authorization for Vetted Technicians only
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.KnowledgeBase == null)
@@ -86,9 +100,11 @@ namespace ITTechniciansRepo.Controllers
         // POST: KnowledgeBase/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Description,Diagnosis,Fix,Category,Model,OS")] KnowledgeBase knowledgeBase)
+        [Authorize]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Description,Diagnosis,Fix,Component,Model,OS")] KnowledgeBase knowledgeBase)
         {
             if (id != knowledgeBase.Id)
             {
@@ -119,6 +135,7 @@ namespace ITTechniciansRepo.Controllers
         }
 
         // GET: KnowledgeBase/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.KnowledgeBase == null)
@@ -139,6 +156,7 @@ namespace ITTechniciansRepo.Controllers
         // POST: KnowledgeBase/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.KnowledgeBase == null)

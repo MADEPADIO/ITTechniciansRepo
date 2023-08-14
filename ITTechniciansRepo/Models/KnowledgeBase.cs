@@ -9,5 +9,7 @@
         public string? Component { get; set; }
         public string? Model { get; set; }
         public string? OS { get; set; }
+
+        public KnowledgeBase() { }
     }
 }

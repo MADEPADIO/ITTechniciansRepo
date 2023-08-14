@@ -30,7 +30,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Component" class="control-label"></label>
-                <input asp-for="Component" class="form-control" />
+                <select asp-for="Component" class="form-control">
+                    <option>Choose Component</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
+                    <option value="Drivers">Drivers</option>
+                </select>
                 <span asp-validation-for="Component" class="text-danger"></span>
             </div>
             <div class="form-group">

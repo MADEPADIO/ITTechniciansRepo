@@ -282,3 +282,4 @@ C:\Users\PADIO\project\ITTechniciansRepo\ITTechniciansRepo\ITTechniciansRepo\obj
 C:\Users\PADIO\project\ITTechniciansRepo\ITTechniciansRepo\ITTechniciansRepo\obj\Debug\net7.0\ITTechniciansRepo.pdb
 C:\Users\PADIO\project\ITTechniciansRepo\ITTechniciansRepo\ITTechniciansRepo\obj\Debug\net7.0\ITTechniciansRepo.genruntimeconfig.cache
 C:\Users\PADIO\project\ITTechniciansRepo\ITTechniciansRepo\ITTechniciansRepo\obj\Debug\net7.0\ref\ITTechniciansRepo.dll
+C:\Users\PADIO\project\ITTechniciansRepo\ITTechniciansRepo\ITTechniciansRepo\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
