@@ -1,0 +1,111 @@
+﻿@model IEnumerable<TechniciansRepo.Models.KnowledgeBase>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Component)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Diagnosis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fix)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Component)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OS)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+}
+
+else
+{
+ <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fix)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Diagnosis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fix)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+}

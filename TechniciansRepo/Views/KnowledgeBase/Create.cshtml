@@ -1,0 +1,104 @@
+﻿@model TechniciansRepo.Models.KnowledgeBase
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>KnowledgeBase</h4>
+<hr />
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diagnosis" class="control-label"></label>
+                <input asp-for="Diagnosis" class="form-control" />
+                <span asp-validation-for="Diagnosis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fix" class="control-label"></label>
+                <input asp-for="Fix" class="form-control" />
+                <span asp-validation-for="Fix" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <label asp-for="Component" class="control-label"></label>
+                    <select asp-for="Component" class="form-control">
+                        <option>Choose Component</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Software">Software</option>
+                        <option value="Drivers">Drivers</option>
+                    </select>
+                    <span asp-validation-for="Component" class="text-danger"></span>
+                </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OS" class="control-label"></label>
+                <input asp-for="OS" class="form-control" />
+                <span asp-validation-for="OS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    </div>
+}
+else
+{
+    <h1>Create</h1>
+
+    <h4>KnowledgeBase</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label"></label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OS" class="control-label"></label>
+                    <input asp-for="OS" class="form-control" />
+                    <span asp-validation-for="OS" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

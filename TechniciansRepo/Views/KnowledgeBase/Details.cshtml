@@ -1,0 +1,66 @@
+﻿@model TechniciansRepo.Models.KnowledgeBase
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>KnowledgeBase</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fix)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fix)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Component)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Component)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OS)
+        </dd>
+    </dl>
+</div>
+@if (SignInManager.IsSignedIn(User))
+{
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
+else
+{
+    <div
+        ><a asp-action="Index">Back to List</a>
+    </div>
+}
